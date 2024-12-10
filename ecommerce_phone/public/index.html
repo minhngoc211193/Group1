@@ -2,8 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link
+      rel="icon"
+      href="data:image/png;base64,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"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -24,7 +36,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Group Project</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
