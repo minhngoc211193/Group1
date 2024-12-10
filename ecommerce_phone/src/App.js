@@ -1,21 +1,27 @@
-import './App.css';
-import React, {useState} from 'react';
-import Header from './components/Header.js';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Login from './components/Login.js';
+import React, { useState, Navigate } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./page/Home";
 
-function App () {
-  const [setIsLogin] = useState(false);
+
+function App() {
+  const [isLogin,setIsLogin] = useState(false);
 
   return (
-      <BrowserRouter>
-        <div className="App">
-          <Header />
-          <Routes>
-          <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+    <Router>
+      <div>
+        <Routes>
+          <Route 
+            path="/login" 
+            element={<Login setIsLogin={setIsLogin} />} 
+          />
+          <Route
+              path="/home"
+              element={isLogin ? <Home /> : <Navigate to={"/login"} />}
+            />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
