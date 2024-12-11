@@ -4,40 +4,41 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <a className="navbar-brand fs-1 mt-3" href="#">
-          SPAMCONMEMAY
-        </a>
-        <div className="collapse navbar-collapse fs-3" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item me-5">
-              <a className="nav-link" aria-current="page" href="/home">
-                HOME
-              </a>
-            </li>
-            <li className="nav-item me-5">
-              <a className="nav-link" href="#">
-                Service
-              </a>
-            </li>
-            <li className="nav-item me-5">
-              <a className="nav-link" href="#">
-                Contact
-              </a>
-            </li>
-            <li
-              className="nav-item  btn-group "
-              role="group"
-              aria-label="Basic example"
-            >
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container w-100">
+        <a class="navbar-brand" href="#">ZIndex.</a>
+        <input class="fs-3  ms-5" type="text" placeholder="Search..." name="" id=""/>
+        <button class="btn btn-lg ms-1" >Search</button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-              <Link to="/login" >
-                Login
-              </Link>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <Link class="nav-link fs-2" to="/">Home</Link>
+            </li>
+            <li class="nav-item">
+            <Link class="nav-link fs-2" to="/about">About</Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link fs-2" to="/blog">Blog</Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link fs-2" to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
+        <Link type="button" to="/login" class="btn me-1 fs-2">Sign in</Link>
+        <Link type="button" to="/register" class="btn fs-2">Register</Link>
       </div>
     </nav>
   );

@@ -1,14 +1,25 @@
-function Section(){
-    return(
-        <section className="bg-secondary text-white text-center py-5">
-        <div className="container">
-          <h1 className="display-4">Welcome to My Website!</h1>
-          <p className="lead">There are many products for you. I hope you have a good day.</p>
-          <a href="#" className="btn btn-light btn-lg p-3">
-            About My Website
-          </a>
+import "./Section.css";
+function Section() {
+  return (
+    <div id="intro-example" class="p-5 text-center bg-image">
+      <div class="mask">
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="text-white">
+            <marquee class="fs-1">Welcome to my website...</marquee>
+            <a
+              data-mdb-ripple-init
+              class="btn btn-outline-light m-2 fs-1"
+              href="https://www.youtube.com/watch?v=c9B4TPnak1A"
+              role="button"
+              rel="nofollow"
+              target="_blank"
+            >
+              Visit us
+            </a>
+          </div>
         </div>
-      </section>
-    )
+      </div>
+    </div>
+  );
 }
 export default Section;

@@ -1,3 +1,16 @@
-nav{
-  font-size: larger;
+.navbar-brand {
+  font-size: 4em !important;;
+  font-weight: bolder !important;
+  color: #c48d6c !important; /* Màu nâu cho logo */
+  padding-top: 20px;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #000 !important; /* Màu đen cho các mục */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #c48d6c !important; /* Đổi màu khi hover */
+  text-decoration: none;
 }
