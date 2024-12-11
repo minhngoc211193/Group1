@@ -1,56 +1,71 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import userData from '../user.json';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import userData from '../db.json';
 
 const Login = ({ setIsLogin }) => {
   const nav = useNavigate();
 
-  const [isLoginFail, setIsLoginFail] = useState(false);
+  const loginSchema = Yup.object().shape({
+    username: Yup.string().min(5,"Username is required"),
+    password: Yup.string().required("Password is required"),
+  });
 
-  const usernameRef = useRef();
-  const passwordRef = useRef();
+  const handleLogin = (values, { setSubmitting, setFieldError }) => {
+    const user = userData.users.find(
+      (u) => u.username === values.username && u.password === values.password
+    );
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const username = usernameRef.current.value;
-    const password = passwordRef.current.value;
-    
-    if (userData.username === username && userData.password === password) {
-      setIsLogin(true);  
-      nav("/home");  
+    if (user) {
+      setIsLogin(true);
+      if (user.role === "admin") {
+        nav("/home");
+      }
     } else {
-      setIsLoginFail(true);  
+      setFieldError("general", "Invalid username or password");
     }
+    setSubmitting(false);
   };
 
   return (
     <div>
       <h2>Login</h2>
-      <form className="w-50" method="POST">
-        <div className="form-group">
-          <label htmlFor="username" className="form-label">Username</label>
-          <input 
-            name="username" 
-            id="username" 
-            className="form-control" 
-            ref={usernameRef} 
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="password" className="form-label">Password</label>
-          <input 
-            name="password" 
-            id="password" 
-            className="form-control" 
-            ref={passwordRef} 
-            type="password" 
-          />
-        </div>
+      <Formik
+        initialValues={{ username: "", password: "" }}
+        validationSchema={loginSchema}
+        onSubmit={handleLogin}
+      >
+        {({ isSubmitting, errors }) => (
+          <Form className="w-50">
+            <div className="form-group">
+              <label htmlFor="username" className="form-label">Username</label>
+              <Field name="username" id="username" className="form-control" placeholder="Enter username"/>
+              <ErrorMessage name="username" component="div" style={{ color: "red" }}/>
+            </div>
 
-        {isLoginFail && <p style={{ color: 'red' }}>Login Fail</p>}
-        <button onClick={handleLogin}>Login</button>
-      </form>
+            <div className="form-group">
+              <label htmlFor="password" className="form-label">Password</label>
+              <Field name="password" id="password" type="password" className="form-control"
+            placeholder="Enter password"
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                style={{ color: "red" }}
+              />
+            </div>
+
+            {errors.general && (
+              <div style={{ color: "red" }}>{errors.general}</div>
+            )}
+
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Logging in..." : "Login"}
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };

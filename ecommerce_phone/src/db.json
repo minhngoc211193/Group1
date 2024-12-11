@@ -1,0 +1,29 @@
+{"users":
+   [
+   { 
+    "username": "admin",
+    "password": "password",
+    "role": "admin"
+   }
+],
+  "products":
+   [
+      {
+         "id": 1,
+         "category": "Sam Sung",
+         "name":"Dien thoai",
+         "description":"dfkjnflesjngl",
+         "img":"dcsacfasca",
+         "price": 20
+      },
+      {
+         "id": 2,
+         "category": "IPhone",
+         "name":"Dien thoai",
+         "description":"dfkjnflesjngl",
+         "img":"dcsacfasca",
+         "price": 20
+      }
+   ]
+}
+
