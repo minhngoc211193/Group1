@@ -6,9 +6,10 @@ const Header = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
       <div class="container w-100">
-        <a class="navbar-brand" href="#">ZIndex.</a>
-        <input class="fs-3  ms-5" type="text" placeholder="Search..." name="" id=""/>
-        <button class="btn btn-lg ms-1" >Search</button>
+        <a class="navbar-brand" href="#">
+          ZIndex.
+        </a>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -22,23 +23,45 @@ const Header = () => {
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
+          <input
+            class="fs-3 me-3 search"
+            type="text"
+            placeholder="   Search..."
+            name=""
+            id=""
+          />
+          <Link type="button" to="/search" class="btn me-5 fs-2">
+            Search
+          </Link>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <Link class="nav-link fs-2" to="/">Home</Link>
+              <Link class="nav-link fs-2" to="/">
+                Home
+              </Link>
             </li>
             <li class="nav-item">
-            <Link class="nav-link fs-2" to="/about">About</Link>
+              <Link class="nav-link fs-2" to="/about">
+                About
+              </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link fs-2" to="/blog">Blog</Link>
+              <Link class="nav-link fs-2" to="/blog">
+                Blog
+              </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link fs-2" to="/contact">Contact</Link>
+              <Link class="nav-link fs-2" to="/contact">
+                Contact
+              </Link>
             </li>
           </ul>
+          <Link type="button" to="/login" class="btn ms-3 fs-2">
+            Sign in
+          </Link>
+          <Link type="button" to="/register" class="btn ms-3 fs-2">
+            Register
+          </Link>
         </div>
-        <Link type="button" to="/login" class="btn me-1 fs-2">Sign in</Link>
-        <Link type="button" to="/register" class="btn fs-2">Register</Link>
       </div>
     </nav>
   );

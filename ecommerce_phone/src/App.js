@@ -3,10 +3,6 @@ import React, { useState } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login.js";
-import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
-import Main from "./components/Main.js";
-import Section from "./components/Section.js";
 import Home from "./page/Home.js";
 import About from "./page/About.js";
 import Detail from "./page/Detail.js";
